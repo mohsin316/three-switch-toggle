@@ -16,13 +16,6 @@ toggle.forEach(radio =>{
     })
 })
 
-toggle.forEach(radio =>{ 
-    radio.addEventListener('keyup', e => {
-        console.log(e.target)
-        let theme = radio.getAttribute('data-radio')
-        loadTheme(theme)
-    })
-})
 
 document.addEventListener('keydown', e =>{
     console.log(e)
