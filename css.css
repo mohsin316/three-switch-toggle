@@ -1,0 +1,150 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+:root{
+    --bg-one: hsl(0, 100%, 50%);
+    --bg-two: hsl(240, 100%, 50%);
+    --bg-three: hsl(39, 100%, 50%);
+}
+
+[color-scheme='first']{
+    --bg: var(--bg-one);
+}
+
+[color-scheme='second']{
+    --bg: var(--bg-two);
+}
+
+[color-scheme='third']{
+    --bg: var(--bg-three);
+}
+
+
+
+
+body{
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(31, 30, 30);
+    color: white;
+}
+
+h2{
+    transition: all 250ms ease-in-out;
+    padding: 1rem;
+    background-color: var(--bg);
+}
+
+.container{
+    width: 100px;
+    position:relative;
+    background: rgb(24, 23, 23);
+    margin: 20px auto 80px;
+    padding: 0 !important;
+    border-radius: 50px;
+    height: 30px;
+    box-shadow:inset 1px 1px 4px rgba(0, 0, 0, 0);
+    background-color: gray;
+    font-size: 1.25rem;
+}
+
+.radio{
+    position: absolute;
+    cursor: pointer;
+}
+
+.one{
+    top: 0;
+    bottom: 0;
+    padding-top: 5px;
+    left: -55px;
+    width: 90px;
+    text-align:left;
+    z-index: 1;
+    
+
+}
+
+.two{
+    text-align:center;
+    width: 40px;
+    left: 50%;
+    margin-left: -23px;
+    padding-top: 40px;
+
+
+}
+
+.three{
+    top: 0;
+    bottom: 0;
+    padding-top: 5px;
+    right: -60px;
+    text-align:right;
+    width: 90px;
+    
+
+}
+
+input[type=radio]{
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    width: 30px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+
+}
+
+input[type=radio]:focus ~ .bg{
+    border: 2px solid black;
+
+}
+
+#second{
+    left: 31px;
+    margin-inline: .25rem;
+}
+#third{
+    left: 70px;
+}
+
+.bg{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: -5px;
+    border-radius: 50%;
+    transition: background-color 350ms ease,
+                left 250ms ease ;
+    
+}
+
+
+.container input[type=radio]:checked ~ .bg {
+    background-color: green;
+}
+
+.container input[type=radio]:nth-child(1):checked ~ .bg {
+    background-color: red;
+    left: -1px;
+}
+
+.container input[type=radio]:nth-child(2):checked ~ .bg {
+    background-color: blue;
+    left: 31px;
+}
+
+.container input[type=radio]:nth-child(3):checked ~ .bg {
+    background-color: orange;
+    left: 60px;
+}
