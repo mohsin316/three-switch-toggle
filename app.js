@@ -1,6 +1,6 @@
 const root = document.querySelector(':root')
 const toggle = document.querySelectorAll('.radio')
-const input = document.querySelectorAll('input [type="radio"]')
+const input = document.querySelectorAll('input')
 
 let theme = 'second';
 root.setAttribute('color-scheme', `${theme}`)
@@ -16,16 +16,12 @@ toggle.forEach(radio =>{
     })
 })
 
-
-document.addEventListener('keydown', e =>{
-    button = e.target;
-    console.log(button.getAttribute('data-type'));
-    theme = button.getAttribute('data-type');
-    if(!theme){
-        theme='second'
-    }
-    loadTheme(theme)
-
+input.forEach(button => {
+    //console.log(button.checked)
+    button.addEventListener('change', e=>{
+        let radio = e.target;
+        theme = button.getAttribute('data-type');
+        loadTheme(theme)
+    })
     
 })
-
