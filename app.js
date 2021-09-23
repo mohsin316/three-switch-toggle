@@ -18,10 +18,14 @@ toggle.forEach(radio =>{
 
 
 document.addEventListener('keydown', e =>{
-    console.log(e)
-    input.forEach(radio =>{ 
-        let theme = radio.getAttribute('data-type')
-        loadTheme(theme)
-    })
+    button = e.target;
+    console.log(button.getAttribute('data-type'));
+    theme = button.getAttribute('data-type');
+    if(!theme){
+        theme='second'
+    }
+    loadTheme(theme)
+
+    
 })
 
